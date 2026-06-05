@@ -11,12 +11,12 @@ This project builds a personalized LMS from either a user-provided website link 
 - Data structuring layer that converts user responses into a normalized schema
 - LMS generation engine (Course -> Modules -> Lessons -> Topics)
 - Adaptive learning engine that updates the learning path based on performance
-- PostgreSQL-backed persistence for sessions and progress events
+- MongoDB-backed persistence for sessions and progress events
 - Separate backend API and frontend client
 
-## Quick start (with PostgreSQL)
+## Quick start (with MongoDB)
 
-1. Start PostgreSQL:
+1. Start MongoDB:
 
 ```bash
 docker compose up -d
@@ -33,7 +33,7 @@ pip install -r requirements.txt
 3. Configure environment variables:
 
 ```bash
-export DATABASE_URL="postgresql+psycopg://postgres:postgres@localhost:5433/adaptive_ai_lms"
+export MONGODB_URL="mongodb://localhost:27017/adaptive_ai_lms"
 export GROQ_API_KEY="your_groq_api_key_here"
 export GROQ_MODEL="llama-3.3-70b-versatile"
 ```

@@ -7,16 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def database_url() -> str:
-    raw = os.getenv(
-        "DATABASE_URL",
-        "postgresql+psycopg://postgres:postgres@localhost:5433/adaptive_ai_lms",
-    )
-    if raw.startswith("postgres://"):
-        raw = raw.replace("postgres://", "postgresql://", 1)
-    if raw.startswith("postgresql://") and "+psycopg" not in raw:
-        raw = raw.replace("postgresql://", "postgresql+psycopg://", 1)
-    return raw
+def mongodb_url() -> str:
+    return os.getenv("MONGODB_URL", "mongodb://localhost:27017/adaptive_ai_lms")
 
 
 def groq_api_key() -> str | None:
